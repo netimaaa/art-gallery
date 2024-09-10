@@ -20,9 +20,9 @@ export const Artist: React.FC<Props> = ({ className }) => {
     <div id="artist" className={cn("relative h-[1000px] pt-8", className)}>
       <motion.div
         key={key}
-        initial={{ y: 100 }}
-        whileInView={{ y: 0 }}
-        viewport={{ once: true }}
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{
           duration: 0.6,
           ease: "easeInOut",
@@ -119,7 +119,15 @@ export const Artist: React.FC<Props> = ({ className }) => {
         src="/art2.png"
         alt=""
       />
-      <img
+      <motion.img
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeInOut",
+          delay: 0.22,
+        }}
+        viewport={{ once: true }}
         className="absolute z-0 top-[48%] left-[41%]"
         src="/circles.png"
         alt=""
