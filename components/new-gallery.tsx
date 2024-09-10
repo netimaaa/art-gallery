@@ -12,8 +12,13 @@ interface Props {
 }
 
 export const NewGallery: React.FC<Props> = ({ className }) => {
+  const [key, setKey] = React.useState(0);
+  React.useEffect(() => {
+    setKey((prev) => prev + 1);
+  }, []);
   return (
     <motion.div
+      key={key}
       id="new-gallery"
       initial={{ backgroundColor: "#E9E9DB" }}
       whileInView={{ backgroundColor: "#2C2D26" }}
@@ -50,8 +55,8 @@ export const NewGallery: React.FC<Props> = ({ className }) => {
         <div className="flex gap-[50px]">
           <div className="w-[296px] text-[#E9E9DB]">
             <motion.img
-              initial={{ x: 190 }}
-              whileInView={{ x: 0 }}
+              initial={{ x: 190, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 1,
                 ease: "easeInOut",
@@ -188,8 +193,8 @@ export const NewGallery: React.FC<Props> = ({ className }) => {
           </div>
           <div className="w-[296px] text-[#E9E9DB]">
             <motion.img
-              initial={{ x: -190 }}
-              whileInView={{ x: 0 }}
+              initial={{ x: -190, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 1,
                 ease: "easeInOut",

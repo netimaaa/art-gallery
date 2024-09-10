@@ -12,8 +12,13 @@ interface Props {
 }
 
 export const MultipleModern: React.FC<Props> = ({ className }) => {
+  const [key, setKey] = React.useState(0);
+  React.useEffect(() => {
+    setKey((prev) => prev + 1);
+  }, []);
   return (
     <motion.div
+      key={key}
       initial={{ backgroundColor: "#2C2D26" }}
       whileInView={{ backgroundColor: "#E9E9DB" }}
       transition={{

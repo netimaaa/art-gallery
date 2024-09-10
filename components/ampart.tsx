@@ -12,8 +12,13 @@ interface Props {
 }
 
 export const Ampart: React.FC<Props> = ({ className }) => {
+  const [key, setKey] = React.useState(0);
+  React.useEffect(() => {
+    setKey((prev) => prev + 1);
+  }, []);
   return (
     <motion.div
+      key={key}
       initial={{
         backgroundColor: "#E9E9DB",
       }}
@@ -165,12 +170,29 @@ export const Ampart: React.FC<Props> = ({ className }) => {
               </motion.div>
             </div>
             <div className="relative mr-[11.5%]">
-              <img
+              <motion.img
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.2,
+                  duration: 0.7,
+                }}
+                viewport={{
+                  amount: 0.4,
+                  once: true,
+                }}
                 src="/art13.png"
                 className="mr-[11.5%] w-[315px] h-[203px]"
                 alt=""
               />
-              <div className="absolute top-[50px] z-[-5] left-[-25px] w-[289px] h-[122px] border border-white rounded-[289px/122px] rotate-[38.88deg]" />
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ ease: "easeInOut", duration: 0.7, delay: 0.1 }}
+                viewport={{ amount: 0.4, once: true }}
+                className="absolute top-[50px] z-[-5] left-[-25px] w-[289px] h-[122px] border border-white rounded-[289px/122px] rotate-[38.88deg]"
+              />
               <div
                 className={`${myFont.className} flex justify-between text-white pt-[22px]`}
               >

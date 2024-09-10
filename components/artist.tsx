@@ -12,9 +12,14 @@ interface Props {
 }
 
 export const Artist: React.FC<Props> = ({ className }) => {
+  const [key, setKey] = React.useState(0);
+  React.useEffect(() => {
+    setKey((prev) => prev + 1);
+  }, []);
   return (
     <div id="artist" className={cn("relative h-[1000px] pt-8", className)}>
       <motion.div
+        key={key}
         initial={{ y: 100 }}
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
