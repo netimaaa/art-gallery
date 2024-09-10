@@ -32,7 +32,7 @@ export const Ampart: React.FC<Props> = ({ className }) => {
     >
       <div className="mx-auto w-[1500px] relative">
         <div
-          className={`${myFont.className} text-[#E9E9DB]/[0.05] leading-[300px] pt-8 pb-12 text-[290px]`}
+          className={`${myFont.className} text-[#E9E9DB]/[0.05] leading-[300px] pt-8 pb-12 text-[290px] user select-none`}
         >
           AMPART
         </div>
